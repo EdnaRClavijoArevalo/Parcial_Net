@@ -1,0 +1,91 @@
+﻿@model dataAccess.Models.Estudiantes
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Estudiantes</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Barrios.nombreBarrio)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Barrios.nombreBarrio)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Cursos.nombreCurso)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Cursos.nombreCurso)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.numeroIdentificacion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.numeroIdentificacion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.apellido)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.apellido)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+    
+        </dl>
+    </div>
+    <div class="display-field">
+        <table>
+            <tr>
+                <td>
+                    <h1>Materias del Estudiante </h1>
+                </td>
+            </tr>
+            @foreach (var item in ViewBag.materias)
+            {
+                <tr>
+                    <td>
+                        @item
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idEstudiante }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

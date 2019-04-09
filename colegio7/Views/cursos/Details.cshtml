@@ -1,0 +1,64 @@
+﻿@model dataAccess.Models.Cursos
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Cursos</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Colegio.NombreColegio)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Colegio.NombreColegio)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreCurso)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nombreCurso)
+            </dd>
+    
+        </dl>
+    </div>
+    <div class="display-label">
+        @Html.LabelFor(model => model.Estudiantes)
+    </div>
+    <div class="display-field">
+        <table>
+            <tr>
+                <th>numero identificacion</th>
+                <th>nombre</th>
+            </tr>
+            @foreach (var item in Model.Estudiantes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.numeroIdentificacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idCurso }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

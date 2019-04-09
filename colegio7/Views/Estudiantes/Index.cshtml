@@ -1,0 +1,74 @@
+﻿@model IEnumerable<dataAccess.Models.Estudiantes>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div>
+       <h3 style ="color:red">@TempData["Message"]</h3> 
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Barrios.nombreBarrio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cursos.nombreCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numeroIdentificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barrios.nombreBarrio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cursos.nombreCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numeroIdentificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idEstudiante }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idEstudiante }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idEstudiante })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

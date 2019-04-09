@@ -1,0 +1,47 @@
+﻿@model IEnumerable<dataAccess.Models.Cursos>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Colegio.NombreColegio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreCurso)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colegio.NombreColegio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreCurso)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idCurso }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idCurso }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idCurso })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
